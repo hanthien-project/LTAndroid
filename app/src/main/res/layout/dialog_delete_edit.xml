@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="5dp">
+
+    <Button
+        android:id="@+id/btnEdit_Category"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:gravity="left"
+        android:text="Edit"
+        android:textColor="@color/black" />
+
+    <Button
+        android:id="@+id/btnDelete_Category"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:text="Delete"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/white"/>
+</LinearLayout>

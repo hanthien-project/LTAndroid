@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">NoteManagerSystem</string>
+    <string name="exit_caption">Thoát Ứng Dụng</string>
+    <string name="exit_content">Bạn có muốn thoát ứng dụng không ?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="title_activity_bang_dieu_khien">BangDieuKhien</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Note Management System</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="hintEmail"><i>Enter your email</i></string>
+    <string name="hintPassword"><i>Enter your password</i></string>
+    <string name="hintFirstName"><i>Enter your first name</i></string>
+    <string name="hintLastName"><i>Enter your last name</i></string>
+    <string name="hintConfirmPassword"><i>Enter your new password again</i></string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_category">Category</string>
+    <string name="menu_priority">Priority</string>
+    <string name="menu_status">Status</string>
+    <string name="menu_note">Note</string>
+    <string name="menu_account">Account</string>
+    <string name="menu_edit_profile">Edit Profile</string>
+    <string name="menu_change_password">Change Password</string>
+    <string name="title_activity_bang_dieu_khien2">BangDieuKhien</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+
+</resources>
