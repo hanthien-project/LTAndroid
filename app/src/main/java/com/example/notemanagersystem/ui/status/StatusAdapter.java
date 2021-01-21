@@ -30,7 +30,7 @@ public class StatusAdapter extends ArrayAdapter<Status> {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         String name = getItem(position).getName();
-        String date = getItem(position).getDate();
+        String date = getItem(position).getCreateDate();
 
         LayoutInflater inflater = LayoutInflater.from(mContext);
         convertView = inflater.inflate(mResource, parent, false);

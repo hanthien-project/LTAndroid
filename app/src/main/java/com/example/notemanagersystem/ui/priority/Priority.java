@@ -1,25 +1,20 @@
 package com.example.notemanagersystem.ui.priority;
 
-
 public class Priority {
 
     private String name = "";
-    private String date = "";
+    private String createDate = "";
+    private String userId = "";
 
     public Priority()
     {
 
     }
-    public Priority(String name)
+    public Priority(String name, String createDate)
     {
         this.name = name;
+        this.createDate = createDate;
     }
-    public Priority(String name, String date)
-    {
-        this.name = name;
-        this.date = date;
-    }
-
 
     public void setName(String name)
     {
@@ -30,14 +25,22 @@ public class Priority {
         return (name);
     }
 
-
-    public void setDate(String date)
+    public void setCreateDate(String date)
     {
-        this.date = date;
+        this.createDate = date;
     }
-    public String getDate()
+    public String getCreateDate()
     {
-        return (date);
+        return (createDate);
+    }
+
+    public void setUserId(String userId)
+    {
+        this.userId = userId;
+    }
+    public String getUserId()
+    {
+        return (userId);
     }
     @Override
     public String toString()

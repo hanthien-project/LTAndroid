@@ -3,22 +3,18 @@ package com.example.notemanagersystem.ui.status;
 public class Status {
 
     private String name = "";
-    private String date = "";
+    private String createDate = "";
+    private String userId = "";
 
     public Status()
     {
 
     }
-    public Status(String name)
+    public Status(String name, String createDate)
     {
         this.name = name;
+        this.createDate = createDate;
     }
-    public Status(String name, String date)
-    {
-        this.name = name;
-        this.date = date;
-    }
-
 
     public void setName(String name)
     {
@@ -29,15 +25,24 @@ public class Status {
         return (name);
     }
 
+    public void setCreateDate(String createDate)
+    {
+        this.createDate = createDate;
+    }
+    public String getCreateDate()
+    {
+        return (createDate);
+    }
 
-    public void setDate(String date)
+    public void setUserId(String userId)
     {
-        this.date = date;
+        this.userId = userId;
     }
-    public String getDate()
+    public String getUserId()
     {
-        return (date);
+        return (userId);
     }
+
     @Override
     public String toString()
     {

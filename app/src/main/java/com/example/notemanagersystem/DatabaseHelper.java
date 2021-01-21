@@ -141,6 +141,30 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return true;
     }
 
+    //---------------------------------------Update-----------------------------------------
+    public int getIdCategory(int pos)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("Select id from category where rowid = ?", new String[]{String.valueOf(pos)});
+        while(cursor.moveToNext()) {
+            return cursor.getInt(0);   //0 is the number of id column in your database table
+        }
+        return -1;
+    }
+    public boolean updateCategory(String email, int pos, String name, String createdate)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("email", email);
+        contentValues.put("name", name);
+        contentValues.put("createdate", createdate);
+        long ins = db.update("category", contentValues, "rowid = ?", new String[]{String.valueOf(pos)});
+        if (ins == -1)
+            return false;
+        return true;
+    }
+
+
     public void deleteCategoryByName(String name)
     {
         SQLiteDatabase db = this.getWritableDatabase();

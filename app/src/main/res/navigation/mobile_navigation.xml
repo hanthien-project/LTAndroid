@@ -36,11 +36,6 @@
         tools:layout="@layout/fragment_note" />
 
     <fragment
-        android:id="@+id/nav_account"
-        android:label="@string/menu_account"
-        tools:layout="@layout/fragment_account" />
-
-    <fragment
         android:id="@+id/nav_edit_profile"
         android:name="com.example.notemanagersystem.ui.editProfile.EditProfileFragment"
         android:label="@string/menu_edit_profile"
@@ -53,5 +48,6 @@
         tools:layout="@layout/fragment_change_password" />
     <fragment
         android:id="@+id/nav_logout"
-         />
+        android:name="com.example.notemanagersystem.ui.logout.LogoutFragment"
+        android:label="Logout" />
 </navigation>

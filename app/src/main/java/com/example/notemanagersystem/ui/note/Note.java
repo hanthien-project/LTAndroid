@@ -7,22 +7,23 @@ public class Note {
     private String category = "";
     private String priority = "";
     private String status = "";
-    private String plandate = "";
-    private String createdate = "";
+    private String planDate = "";
+    private String createDate = "";
+    private String userId = "";
 
 
     public Note()
     {
 
     }
-    public Note(String name, String category, String priority, String status, String plandate, String createdate)
+    public Note(String name, String category, String priority, String status, String planDate, String createDate)
     {
         this.name = name;
         this.category = category;
         this.priority = priority;
         this.status = status;
-        this.plandate = plandate;
-        this.createdate = createdate;
+        this.planDate = planDate;
+        this.createDate = createDate;
     }
 
     public void setName(String name)
@@ -61,22 +62,31 @@ public class Note {
         return (status);
     }
 
-    public void setPlandate(String plandate)
+    public void setPlanDate(String planDate)
     {
-        this.plandate = plandate;
+        this.planDate = planDate;
     }
-    public String getPlandate()
+    public String getPlanDate()
     {
-        return (plandate);
+        return (planDate);
     }
 
-    public void setCreatedate(String createdate)
+    public void setCreateDate(String createDate)
     {
-        this.createdate = createdate;
+        this.createDate = createDate;
     }
-    public String getCreatedate()
+    public String getCreateDate()
     {
-        return (createdate);
+        return (createDate);
+    }
+
+    public void setUserId(String userId)
+    {
+        this.userId = userId;
+    }
+    public String getUserId()
+    {
+        return (userId);
     }
 
     @Override

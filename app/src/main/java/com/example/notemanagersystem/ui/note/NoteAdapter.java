@@ -33,8 +33,8 @@ public class NoteAdapter extends ArrayAdapter<Note> {
         String category = getItem(position).getCategory();
         String priority = getItem(position).getPriority();
         String status = getItem(position).getStatus();
-        String plandate = getItem(position).getPlandate();
-        String createdate = getItem(position).getCreatedate();
+        String planDate = getItem(position).getPlanDate();
+        String createDate = getItem(position).getCreateDate();
 
         LayoutInflater inflater = LayoutInflater.from(mContext);
         convertView = inflater.inflate(mResource, parent, false);
@@ -50,8 +50,8 @@ public class NoteAdapter extends ArrayAdapter<Note> {
         tvCategory.setText("Category: " + category);
         tvPriority.setText("Priority: " + priority);
         tvStatus.setText("Status: " + status);
-        tvPlandate.setText("Plan date: " + plandate);
-        tvCreatedate.setText("Created Date: " + createdate);
+        tvPlandate.setText("Plan date: " + planDate);
+        tvCreatedate.setText("Created Date: " + createDate);
 
         return convertView;
     }

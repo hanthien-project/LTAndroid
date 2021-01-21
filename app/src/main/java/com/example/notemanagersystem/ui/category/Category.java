@@ -3,22 +3,18 @@ package com.example.notemanagersystem.ui.category;
 public class Category {
 
     private String name = "";
-    private String date = "";
+    private String createDate = "";
+    private String userId = "";
 
     public Category()
     {
 
     }
-    public Category(String name)
+    public Category(String name, String createDate)
     {
         this.name = name;
+        this.createDate = createDate;
     }
-    public Category(String name, String date)
-    {
-        this.name = name;
-        this.date = date;
-    }
-
 
     public void setName(String name)
     {
@@ -30,13 +26,22 @@ public class Category {
     }
 
 
-   public void setDate(String date)
+    public void setCreateDate(String createDate)
    {
-       this.date = date;
+       this.createDate = createDate;
     }
-    public String getDate()
+    public String getCreateDate()
     {
-        return (date);
+        return (createDate);
+    }
+
+    public void setUserId(String userId)
+    {
+        this.userId = userId;
+    }
+    public String getUserId()
+    {
+        return (userId);
     }
 
     @Override

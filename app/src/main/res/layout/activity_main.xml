@@ -147,26 +147,21 @@
         android:layout_marginTop="20dp"
         android:orientation="vertical">
 
-        <Button
+        <com.google.android.gms.common.SignInButton
             android:id="@+id/btnSignInGoogle_DangNhap"
-            android:layout_width="215dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
             android:text="Sign In With Google"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="31dp"
-            tools:layout_editor_absoluteY="44dp" />
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"/>
 
-        <Button
+        <com.facebook.login.widget.LoginButton
             android:id="@+id/btnSignInFaceBook_DangNhap"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="30dp"
-            android:layout_marginLeft="30dp"
-            android:text="Sign In With FaceBook"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="273dp"
-            tools:layout_editor_absoluteY="42dp" />
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="50dp" />
 
     </LinearLayout>
     <RelativeLayout

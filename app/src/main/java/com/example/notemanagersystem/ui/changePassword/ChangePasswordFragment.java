@@ -22,14 +22,20 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.notemanagersystem.DatabaseHelper;
 import com.example.notemanagersystem.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+
 import static com.example.notemanagersystem.DashBoard.currentPassword;
 import static com.example.notemanagersystem.DashBoard.currentEmail;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ChangePasswordFragment extends Fragment {
-
-    DatabaseHelper db ;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -44,22 +50,22 @@ public class ChangePasswordFragment extends Fragment {
             }
         });
 
-        EditText etxtCurrentPassword = (EditText)root.findViewById(R.id.etxtCurrentPassword_ChangePassword);
-        EditText etxtNewPassword = (EditText)root.findViewById(R.id.etxtNewPassword_ChangePassword);
-        EditText etxtConfirmPassword = (EditText)root.findViewById(R.id.etxtConfirmPassword_ChangePassword);
+        EditText currentPassword = (EditText)root.findViewById(R.id.etxtCurrentPassword_ChangePassword);
+        EditText newPassword = (EditText)root.findViewById(R.id.etxtNewPassword_ChangePassword);
+        EditText confirmPassword = (EditText)root.findViewById(R.id.etxtConfirmPassword_ChangePassword);
         Button btnChange = (Button)root.findViewById(R.id.btnChange_ChangePassword);
-        db = new DatabaseHelper(getActivity());
 
         btnChange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialog(etxtCurrentPassword, etxtNewPassword, etxtConfirmPassword);
+                dialog(currentPassword, newPassword, confirmPassword);
                 InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(root.getWindowToken(), 0);
             }
         });
         return root;
     }
+
     public void dialog(EditText etxtCurrentPassword, EditText etxtNewPassword, EditText etxtPasswordAgain)
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
@@ -69,11 +75,23 @@ public class ChangePasswordFragment extends Fragment {
         else {
             if (etxtCurrentPassword.getText().toString().equals(currentPassword)) {
                 if (etxtNewPassword.getText().toString().equals(etxtPasswordAgain.getText().toString())) {
-                    boolean changePassword = db.changePassword(currentEmail, etxtNewPassword.getText().toString());
-                    if (changePassword == true) {
-                            builder.setMessage("Đổi mật khẩu thành công");
-                    } else
-                        builder.setMessage("KHÔNG THÀNH CÔNG");
+
+                    Query query = FirebaseDatabase.getInstance().getReference().child("user").orderByChild("email").equalTo(currentEmail);
+                    query.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            for(DataSnapshot dataSnapshot : snapshot.getChildren()){
+                                Map<String, Object> updates = new HashMap<String, Object>();
+                                updates.put("email", currentEmail);
+                                updates.put("password", etxtNewPassword.getText().toString());
+                                dataSnapshot.getRef().updateChildren(updates);
+                            }
+                        }
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+                        }
+                    });
+                    builder.setMessage("Đổi mật khẩu thành công");
                 }
                 else
                     builder.setMessage("Mật khẩu xác nhận không khớp");
